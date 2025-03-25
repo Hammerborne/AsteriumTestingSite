@@ -16,6 +16,7 @@ public class ClickExplotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Imported
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -27,6 +28,8 @@ public class ClickExplotion : MonoBehaviour
                 TestVFXExplotion.Instance.Explotion(clickPosition, 0.25f);
             }
         }
+
+        // Local 
         if (Input.GetMouseButtonDown(1))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

@@ -7,8 +7,7 @@ public class ProjectileECSContentData : ScriptableObject
 {
     [Tooltip("Important: make sure all ProjectileData have a unique ID")]
     public string ID;
-    public VisualEffectAsset ExplotionGraphAsset;
-    public VisualEffectAsset HitGraphAsset;
+    public GameObject ExplotionVisualEffectObject;
 
 
     private static List<ProjectileECSContentData> projectile_list = new List<ProjectileECSContentData>();

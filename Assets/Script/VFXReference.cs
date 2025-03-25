@@ -13,28 +13,12 @@ public class VFXReferences : Singleton<VFXReferences>
     // Para explosiones
     public Dictionary<FixedString128Bytes, VisualEffect> ExplosionsVFXs = new Dictionary<FixedString128Bytes, VisualEffect>();
     public Dictionary<FixedString128Bytes, GraphicsBuffer> ExplosionsRequestsBuffers = new Dictionary<FixedString128Bytes, GraphicsBuffer>();
-
-    public Dictionary<FixedString128Bytes, VisualEffectAsset> Graphs = new Dictionary<FixedString128Bytes, VisualEffectAsset>();
     // Thrusters (se mantiene igual)
     public VisualEffect ThrustersGraph;
     public GraphicsBuffer ThrusterRequestsBuffer;
     public GraphicsBuffer ThrusterDatasBuffer;
 
 
-    public void LoadGraphs(List<VisualEffectAsset> graphs)
-    {
-        Graphs.Clear();
-        ExplosionsVFXs.Clear();
-        ExplosionsRequestsBuffers.Clear();
-        HitSparksVFXs.Clear();
-        HitSparksRequestsBuffers.Clear(); 
-
-        foreach (var graph in graphs)
-        {
-            Graphs[graph.name] = graph;
-        }
-        graphs.Clear();
-    }
 }
 
 public class TestVFXExplotion : Singleton<TestVFXExplotion>
@@ -111,8 +95,7 @@ public class TestVFXExplotion : Singleton<TestVFXExplotion>
 
         // Enviar el evento para que el VFX Graph procese la solicitud
         vfxGraph.SendEvent(_spawnBatchId);
-
-        VFXReferences.Instance.ExplosionsRequestsBuffers[effect.visualEffectAsset.name] = buffer;
+        buffer = graphicsBuffer;
     }
 
 }

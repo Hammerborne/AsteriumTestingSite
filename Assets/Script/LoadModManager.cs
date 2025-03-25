@@ -10,48 +10,20 @@ public class LoadModManager : MonoBehaviour
     const string modName = "CoreMod";
     private ModHost modHost;
 
-    public GameObject BaseVisualEffect;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         LoadMods();
         ProjectileECSContentData.Load(GetModContent<ProjectileECSContentData>("Data/ProyectilECSDesign", ".asset"));
-        //VFXReferences.Instance.LoadGraphs(GetVisualEffecAssetFromModContent("Data/Graph", ".vfx"));
 
-        var graphs = new List<VisualEffectAsset>();
-        foreach (var item in ProjectileECSContentData.GetAll())
+        foreach (var projectilData in ProjectileECSContentData.GetAll())
         {
-            graphs.Add(item.ExplotionGraphAsset);
-        }
-        VFXReferences.Instance.LoadGraphs(graphs);
-
-        foreach (var graph in VFXReferences.Instance.Graphs)
-        {
-            GameObject model = Instantiate(BaseVisualEffect, new Vector3(0,0,0), Quaternion.identity);
+            GameObject model = Instantiate(projectilData.ExplotionVisualEffectObject, new Vector3(0,0,0), Quaternion.identity);
             model.name = "VFX Imported";
-            model.GetComponent<VisualEffect>().visualEffectAsset = graph.Value;
-
-            VFXReferences.Instance.ExplosionsVFXs.Add(graph.Key, model.GetComponent<VisualEffect>());
-            VFXReferences.Instance.ExplosionsRequestsBuffers.Add(graph.Key, new GraphicsBuffer(GraphicsBuffer.Target.Structured, 1000,
+            var modelVisualEffect = model.GetComponent<VisualEffect>();
+            VFXReferences.Instance.ExplosionsVFXs.Add(modelVisualEffect.visualEffectAsset.name, modelVisualEffect);
+            VFXReferences.Instance.ExplosionsRequestsBuffers.Add(modelVisualEffect.visualEffectAsset.name, new GraphicsBuffer(GraphicsBuffer.Target.Structured, 1000,
             Marshal.SizeOf(typeof(VFXExplosionRequest))));
         }
-
-
-
-
-
-        // Cargar de los resources un VFX graph
-
-
-
-
-
-
-
-
-
-
-
 
     }
 
