@@ -16,12 +16,9 @@ MonoBehaviour:
   modIncludeContent:
     includedGuids: []
   additionalScripts:
-    includedGuids: []
+    includedGuids:
+    - 8fefcd76f631ee8479e16d0078f6cb6b
   additionalAssemblies:
     includedGuids: []
   additionalContent:
-    includedGuids:
-    - 83214336a895d6c4783299d8e625ceb9
-    - 11f7711376dd3b84da07eeebb7ea3244
-    - 61e79a7b47f1ebe4d85eb84075a7dd33
-    - 2e8e8acd0ef5bda43bd9bad43fe7088e
+    includedGuids: []

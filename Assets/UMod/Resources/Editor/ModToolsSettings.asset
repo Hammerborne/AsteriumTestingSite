@@ -22,11 +22,11 @@ MonoBehaviour:
   syncDeveloperName: 0
   gameName: Unity - uMod 2.0
   syncGameName: 0
-  gameVersion: 1.0.0
+  gameVersion: 0.1.0
   syncGameVersion: 1
   modFileExtension: .umod
   commandLineLaunchFormat: +mod=$PATH
-  targetUnityVersion: 2019.4.40f1
+  targetUnityVersion: 6000.0.26f1
   allowAnyUnityVersion: 1
   developerWebsiteURL: http://trivialinteractive.co.uk
   onlineDocumentationURL: https://trivialinteractive.co.uk/products/documentation/umod_20/UserGuide.pdf
@@ -151,13 +151,12 @@ MonoBehaviour:
     performBuildSecurityChecks: 1
     allowScriptsInMods: 1
     allowAssembliesInMods: 1
-    securityRestrictions: {fileID: 11400000, guid: ec48e15fce9a35846964f190f066079d,
-      type: 2}
+    securityRestrictions: {fileID: 11400000, guid: ec48e15fce9a35846964f190f066079d, type: 2}
     readOnly: 0
   gameLocking:
     allowGameLocking: 1
     allowGameVersionLocking: 1
-    gameLockingGUID: 1f9f1ed4-0958-490b-b9d5-52ad22728513
+    gameLockingGUID: 7b453601-dc98-4858-b1d3-5b0b8ac5da15
     readOnly: 0
   stripShaderNames: []
   readOnly: 0
